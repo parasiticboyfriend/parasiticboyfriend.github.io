@@ -1,6 +1,6 @@
 body {
-    background: rgb(255, 200, 228);
-    color: #b7266c;
+    background: #b5d4ff;
+    color:rgb(244, 118, 183); 
     padding: 10px;
     font-family: arial;
 }
@@ -11,7 +11,7 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(255, 228, 129);
+    background: rgb(255, 156, 207);
    margin: 0 auto;
    margin-bottom: 20px;
     display: flex;
@@ -20,7 +20,7 @@ nav {
 h1 {
     display: flex;
     align-items: center;
-    color: #768fff;
+    color: rgb(255, 255, 255);
     flex: 1;
     margin: 0;
 }
@@ -53,7 +53,7 @@ main {
     padding: 15px;
 }
 #interests {
-    border: 4px #768fff ridge;
+    border: 8px #768fff ridge;
     padding: 8px;
 }
 h2, h3 {
