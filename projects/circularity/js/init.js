@@ -21,12 +21,23 @@ var init = function (window) {
         
         // TODO 1 : Declare and initialize our variables
 
+        var circle;			
+        var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
         
+        function drawCircle() {
+            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas);
+            view.addChild(circle);
+            circles.push(circle); 
+        }
 
         // TODO 3 / 7 : Call the drawCircle() function 
 
+        for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++) {
+            drawCircle();
+        }
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -38,11 +49,18 @@ var init = function (window) {
         and check to see if it has drifted off the screen.         
         */
         function update() {
+           
             // TODO 4 : Update the circle's position //
 
-            
+            for (var position = 0; position < 100; position++) {
+                physikz.updatePosition(circles[position]);
+            }
+        
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
            
+           for (var check = 0; check < 100; check++) {
+                game.checkCirclePosition(circles[check]);
+           }
 
             // TODO 9 : Iterate over the array
            
@@ -60,7 +78,17 @@ var init = function (window) {
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
-            
+            //past the BOTTOM side to the TOP
+            if ( circle.y > canvas.height ) {
+                circle.y = 0;
+            }
+            //past the LEFT side to the RIGHT
+            if ( circle.x < 0) {
+                circle.x = canvas.width
+            }
+            //past the TOP side to the BOTTOM
+            if ( circle.y < 0)
+                circle.y = canvas.height
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             
 
